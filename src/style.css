@@ -1,0 +1,286 @@
+:root {
+  --bg: #222639;
+  --paper: #3d4051;
+  --text: #ffffff;
+  --text-2: rgba(255, 255, 255, 0.7);
+  --text-3: rgba(255, 255, 255, 0.5);
+  --primary: #bb99ff;
+  --primary-text: rgba(0, 0, 0, 0.87);
+  --line: rgba(255, 255, 255, 0.14);
+  --input: rgba(0, 0, 0, 0.2);
+  --danger: #ff6b6b;
+  --ok: #4ade80;
+  color-scheme: dark;
+}
+
+:root[data-mode="LIGHT"] {
+  --line: rgba(0, 0, 0, 0.14);
+  --input: rgba(0, 0, 0, 0.05);
+  --danger: #d32f2f;
+  --ok: #15803d;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: transparent;
+  color: var(--text);
+  font: 14px/1.45 Roboto, "Segoe UI", system-ui, sans-serif;
+}
+
+body.standalone {
+  background: var(--bg);
+}
+
+#app {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 2px;
+}
+
+p {
+  margin: 0;
+}
+
+.muted {
+  color: var(--text-2);
+}
+
+.small {
+  font-size: 12px;
+}
+
+.drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 16px;
+  border: 1.5px dashed var(--line);
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.drop:hover,
+.drop.over {
+  border-color: var(--primary);
+  background: var(--input);
+}
+
+.drop input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.drop-title {
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.preview {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  background: #1e1e24;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--text-2);
+}
+
+.legend i {
+  display: inline-block;
+  width: 10px;
+  height: 3px;
+  border-radius: 2px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.stats {
+  color: var(--text-2);
+  margin-top: 4px;
+}
+
+#details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#details[hidden] {
+  display: none;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field label,
+.checks legend {
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--input);
+  color: var(--text);
+  font: inherit;
+}
+
+select option {
+  color: #000;
+}
+
+input[type="text"]:focus,
+select:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: -1px;
+}
+
+.checks {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 10px 8px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 8px;
+}
+
+.checks label,
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.checks label.empty {
+  opacity: 0.45;
+}
+
+.count {
+  color: var(--text-3);
+  font-size: 12px;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--primary);
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.advanced {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.advanced[open] {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.advanced summary {
+  cursor: pointer;
+  color: var(--text-2);
+  font-size: 12px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+button {
+  font: inherit;
+  font-weight: 500;
+  border-radius: 20px;
+  padding: 9px 16px;
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+button.primary {
+  background: var(--primary);
+  color: var(--primary-text);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+button.link {
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  font-weight: 400;
+  color: var(--text-2);
+  text-decoration: underline;
+  text-align: left;
+}
+
+.status:empty {
+  display: none;
+}
+
+.status {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--input);
+}
+
+.status.error {
+  color: var(--danger);
+}
+
+.status.ok {
+  color: var(--ok);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}

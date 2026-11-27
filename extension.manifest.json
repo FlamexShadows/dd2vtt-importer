@@ -1,0 +1,15 @@
+{
+  "name": "DD2VTT Importer",
+  "version": "1.0.1",
+  "manifest_version": 1,
+  "description": "Import Dungeondraft .dd2vtt and Universal VTT maps as scenes with walls, doors and lights for Dynamic Fog.",
+  "author": "Custom",
+  "icon": "icon.svg",
+  "action": {
+    "title": "DD2VTT Importer",
+    "icon": "icon.svg",
+    "popover": "",
+    "width": 380,
+    "height": 640
+  }
+}

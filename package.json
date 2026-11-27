@@ -1,0 +1,22 @@
+{
+  "name": "obr-dd2vtt-importer",
+  "private": true,
+  "version": "1.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@owlbear-rodeo/sdk": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "happy-dom": "^20.14.6",
+    "typescript": "~5.8.3",
+    "vite": "^6.4.5",
+    "vitest": "^3.2.7"
+  }
+}

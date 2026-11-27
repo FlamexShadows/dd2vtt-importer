@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DD2VTT Importer</title>
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+  </head>
+  <body>
+    <main id="app">
+      <header class="header">
+        <h1>DD2VTT Importer</h1>
+        <p class="muted">Turn a Universal VTT file into a scene with walls, doors and lights.</p>
+      </header>
+
+      <label class="drop" id="drop">
+        <input id="file" type="file" accept=".dd2vtt,.df2vtt,.uvtt,.json" />
+        <span class="drop-title" id="drop-title">Choose a .dd2vtt file</span>
+        <span class="muted small">or drop it here</span>
+      </label>
+
+      <section id="details" hidden>
+        <canvas id="preview" class="preview"></canvas>
+        <ul class="legend small">
+          <li><i style="background: #ff3b6b"></i>Walls</li>
+          <li><i style="background: #c084fc"></i>Objects</li>
+          <li><i style="background: #ff9f1c"></i>Closed door</li>
+          <li><i style="background: #2ec4b6"></i>Open door</li>
+          <li><i style="background: #ffd54f"></i>Light</li>
+        </ul>
+        <p class="stats small" id="stats"></p>
+
+        <div class="field">
+          <label for="scene-name">Scene name</label>
+          <input id="scene-name" type="text" maxlength="60" />
+        </div>
+
+        <fieldset class="checks">
+          <legend>Import</legend>
+          <label><input type="checkbox" id="opt-walls" checked /> Walls <span class="count" id="count-walls"></span></label>
+          <label><input type="checkbox" id="opt-objects" checked /> Object walls <span class="count" id="count-objects"></span></label>
+          <label><input type="checkbox" id="opt-doors" checked /> Doors <span class="count" id="count-doors"></span></label>
+          <label><input type="checkbox" id="opt-lights" checked /> Lights <span class="count" id="count-lights"></span></label>
+        </fieldset>
+
+        <details class="advanced">
+          <summary>Settings</summary>
+          <div class="field">
+            <label for="light-type">Light type</label>
+            <select id="light-type">
+              <option value="SECONDARY">Secondary: shows once a player sees it</option>
+              <option value="PRIMARY">Primary: always reveals the area</option>
+              <option value="AUXILIARY">Auxiliary: reveals, triggers nothing</option>
+            </select>
+          </div>
+          <label class="inline"><input type="checkbox" id="opt-soft" checked /> Soft light edges</label>
+          <label class="inline"><input type="checkbox" id="opt-fog" checked /> Fill scene with fog</label>
+          <div class="field">
+            <label for="limit">Image size limit (new scene)</label>
+            <select id="limit"></select>
+          </div>
+          <div class="field">
+            <label for="grid-scale">Grid scale (new scene)</label>
+            <input id="grid-scale" type="text" value="5ft" />
+          </div>
+        </details>
+
+        <div class="actions">
+          <button id="btn-new" class="primary" type="button">Create new scene</button>
+          <button id="btn-attach" type="button" title="Select the map in the current scene first">Add to selected map</button>
+        </div>
+      </section>
+
+      <p id="status" class="status small" role="status" aria-live="polite"></p>
+
+      <footer class="footer small">
+        <p class="muted" id="hint">Walls, doors and lights need the Dynamic Fog extension.</p>
+        <button id="btn-remove" class="link" type="button">Remove imported items from this scene</button>
+      </footer>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
