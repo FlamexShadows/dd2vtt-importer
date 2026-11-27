@@ -2,6 +2,16 @@
 
 Import Dungeondraft `.dd2vtt` files (and other Universal VTT exports: `.uvtt`, `.df2vtt`) into Owlbear Rodeo. You get the map, walls, doors and lights, ready for the official Dynamic Fog extension.
 
+## Install
+
+In Owlbear Rodeo, open your profile, click **Add Extension**, and paste:
+
+```
+https://flamexshadows.github.io/dd2vtt-importer/manifest.json
+```
+
+Then enable DD2VTT Importer and Dynamic Fog in your room.
+
 ## What it does
 
 Pick a file in the extension popover. You see a preview of the map with every wall, door and light drawn on top. Then choose one of two actions.
